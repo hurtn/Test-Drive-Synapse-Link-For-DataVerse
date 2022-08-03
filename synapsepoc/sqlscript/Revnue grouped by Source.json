@@ -1,0 +1,17 @@
+{
+	"name": "Revnue grouped by Source",
+	"properties": {
+		"content": {
+			"query": "select sum(revenue) revenue , source \nfrom  (SELECT revenue revenue, 'account' as source FROM account UNION\n    SELECT revenue, 'lead' as source FROM lead UNION \n    SELECT totalamount_base, 'opportunity' as source FROM opportunity) alltabs\n    group by source order by 1 desc",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dataverse_salestrial_unq70135e808c8a4736b19383c33ec8b",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

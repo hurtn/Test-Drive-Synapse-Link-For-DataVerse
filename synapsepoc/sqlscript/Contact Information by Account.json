@@ -1,0 +1,17 @@
+{
+	"name": "Contact Information by Account",
+	"properties": {
+		"content": {
+			"query": " SELECT a.Id AS account_ID, a.name AS account_name, b.fullname AS contact_name, b.emailaddress1 AS contact_email, b.donotemail\n FROM\n account a\n INNER JOIN\n (\n     SELECT parentcustomerid, fullname, emailaddress1, donotemail\n     FROM \n     contact\n) b\nON a.Id = b.parentcustomerid",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "dataverse_salestrial_unq70135e808c8a4736b19383c33ec8b",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

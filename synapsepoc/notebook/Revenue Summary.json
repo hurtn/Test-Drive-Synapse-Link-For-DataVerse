@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "53ca1c58-6154-47b5-8cef-9cee4f33e294"
+				"spark.autotune.trackingId": "3ae04f9f-fc99-4f55-b70c-b03dc79adc80"
 			}
 		},
 		"metadata": {
@@ -31,10 +31,10 @@
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/f446365a-c056-416c-bec6-57b86fdac1b4/resourceGroups/syn1115-02/providers/Microsoft.Synapse/workspaces/dvrtb76l3m6uqqu4pocws1/bigDataPools/ws1sparkpool1",
+				"id": "/subscriptions/50710ca0-83e2-4dde-b67e-16e627479127/resourceGroups/synapselinkdemo/providers/Microsoft.Synapse/workspaces/acmu5vh7yqhtcap2pocws1/bigDataPools/ws1sparkpool1",
 				"name": "ws1sparkpool1",
 				"type": "Spark",
-				"endpoint": "https://dvrtb76l3m6uqqu4pocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
+				"endpoint": "https://acmu5vh7yqhtcap2pocws1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/ws1sparkpool1",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
@@ -83,9 +83,9 @@
 				},
 				"source": [
 					"%%sql\r\n",
-					"USE  <Databasename>"
+					"USE  dataverse_salestrial_unq70135e808c8a4736b19383c33ec8b"
 				],
-				"execution_count": 2
+				"execution_count": 1
 			},
 			{
 				"cell_type": "markdown",
@@ -137,7 +137,7 @@
 					"plt.pie(revenue_data[\"revenue\"], labels = revenue_data.index, autopct = '%1.1f%%', colors = my_colors)\r\n",
 					"plt.show()"
 				],
-				"execution_count": 3
+				"execution_count": 2
 			},
 			{
 				"cell_type": "markdown",
@@ -198,7 +198,7 @@
 					"plt.legend()\r\n",
 					"plt.show()"
 				],
-				"execution_count": 4
+				"execution_count": 3
 			},
 			{
 				"cell_type": "markdown",
@@ -236,12 +236,12 @@
 					"df = spark.sql(\"\"\"\r\n",
 					" SELECT a.Id AS account_ID, a.name AS account_name, b.fullname AS contact_name, b.emailaddress1 AS contact_email, b.donotemail\r\n",
 					" FROM\r\n",
-					" dataverse_salestrial_unqb032d835bab8474f8813337f0e197.account a\r\n",
+					" account a\r\n",
 					" INNER JOIN\r\n",
 					" (\r\n",
 					"     SELECT parentcustomerid, fullname, emailaddress1, donotemail\r\n",
 					"     FROM \r\n",
-					"     dataverse_salestrial_unqb032d835bab8474f8813337f0e197.contact\r\n",
+					"     contact\r\n",
 					") b\r\n",
 					"ON a.Id = b.parentcustomerid\r\n",
 					"\"\"\")\r\n",
